@@ -1,1 +1,1 @@
-0x00-pascal_triangle
+about pascal triangle
