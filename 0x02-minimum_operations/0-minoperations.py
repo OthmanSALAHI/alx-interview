@@ -1,37 +1,20 @@
 #!/usr/bin/python3
 """
-Main file for testing
+Contains a method that calculates the fewest number of operations
+needed to result in exactly n H characters in the file.
 """
 
 
-def minOperations(n: int) -> int:
-    """Returns the minimum operations required to archieve n characters."""
-
-    result = 0
+def minOperations(n):
+    """
+    Returns the fewest number of operations needed to result in exactly
+    n H characters in the file.
+    """
+    operations = 0
+    min_operations = 2
     while n > 1:
-        for i in range(2, n + 1):
-            if n % i == 0:
-                result += i
-                n = n // i
-                break
-    return result
-
-
-if __name__ == '__main__':
-
-    n = 1
-    print("Min # of operations to reach {} char: {}".format(
-        n, minOperations(n)))
-    n = 3
-    print("Min # of operations to reach {} char: {}".format(
-        n, minOperations(n)))
-
-    n = 12
-    print("Min # of operations to reach {} char: {}".format(
-        n, minOperations(n)))
-    n = 12
-    print("Min # of operations to reach {} char: {}".format(
-        n, minOperations(n)))
-    n = 12
-    print("Min # of operations to reach {} char: {}".format(
-        n, minOperations(n)))
+        while n % min_operations == 0:
+            operations += min_operations
+            n /= min_operations
+        min_operations += 1
+    return operations

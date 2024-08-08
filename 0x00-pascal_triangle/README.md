@@ -1,1 +1,1 @@
-about pascal triangle
+# Pascal's Triangle
